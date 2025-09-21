@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNTRAP - Your Career Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Screen -->
+        <section id="welcome-screen" class="screen active">
+            <div class="welcome-container">
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">🎯</div>
+                        <h1 class="logo-text">UNTRAP</h1>
+                    </div>
+                    <p class="tagline">Escape Career Confusion. Find Your Path.</p>
+                </div>
+                
+                <div class="welcome-content">
+                    <h2>Welcome to Your Career Journey</h2>
+                    <p>Join thousands of Indian students who've broken free from career confusion and found their perfect path.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">50,000+</div>
+                            <div class="stat-label">Students Helped</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Career Paths</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--lg btn--full-width" id="start-journey">
+                        Start Your Journey 🚀
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language Selection -->
+        <section id="language-screen" class="screen">
+            <div class="container">
+                <div class="screen-header">
+                    <h2>Choose Your Preferred Language</h2>
+                    <p>Select the language you're most comfortable with</p>
+                </div>
+                
+                <div class="language-options">
+                    <button class="language-option" data-lang="english">
+                        <span class="flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                        <span class="lang-desc">Standard English</span>
+                    </button>
+                    <button class="language-option" data-lang="hindi">
+                        <span class="flag">🇮🇳</span>
+                        <span class="lang-name">हिंदी</span>
+                        <span class="lang-desc">हिंदी भाषा</span>
+                    </button>
+                    <button class="language-option" data-lang="hinglish">
+                        <span class="flag">🔄</span>
+                        <span class="lang-name">Hinglish</span>
+                        <span class="lang-desc">Hindi + English Mix</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Type Selection -->
+        <section id="user-type-screen" class="screen">
+            <div class="container">
+                <div class="screen-header">
+                    <h2>What describes you best?</h2>
+                    <p>This helps us personalize your experience</p>
+                </div>
+                
+                <div class="user-type-options">
+                    <button class="user-type-option" data-type="highschool">
+                        <div class="option-icon">🎓</div>
+                        <h3>High School Student</h3>
+                        <p>Ages 14-18 • Planning for 12th & beyond</p>
+                        <span class="option-badge">Most Popular</span>
+                    </button>
+                    <button class="user-type-option" data-type="college">
+                        <div class="option-icon">📚</div>
+                        <h3>College Student</h3>
+                        <p>Ages 18-24 • Currently in graduation</p>
+                    </button>
+                    <button class="user-type-option" data-type="professional">
+                        <div class="option-icon">💼</div>
+                        <h3>Working Professional</h3>
+                        <p>Ages 18-25 • Looking for career change</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phone Number Input -->
+        <section id="phone-screen" class="screen">
+            <div class="container">
+                <div class="screen-header">
+                    <h2>Let's get you authenticated</h2>
+                    <p>We'll send you career updates and reminders</p>
+                </div>
+                
+                <div class="phone-input-container">
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <div class="phone-input">
+                            <span class="country-code">+91</span>
+                            <input type="tel" class="form-control" id="phone-number" placeholder="Enter your phone number" maxlength="10">
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn--primary btn--full-width" id="verify-phone" disabled>
+                        Get OTP
+                    </button>
+                    
+                    <p class="privacy-note">
+                        🔒 Your data is secure and will never be shared with third parties
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Screen -->
+        <section id="assessment-screen" class="screen">
+            <div class="container">
+                <div class="assessment-header">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="progress-text">
+                            <span id="current-phase">Phase 1: Interest Discovery</span>
+                            <span id="progress-counter">1 of 45</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-container">
+                    <div class="question-content">
+                        <h3 id="question-text">Loading question...</h3>
+                        <div id="question-options"></div>
+                    </div>
+                    
+                    <div class="question-actions">
+                        <button class="btn btn--outline" id="prev-question" disabled>Previous</button>
+                        <button class="btn btn--primary" id="next-question" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="container">
+                <div class="results-header">
+                    <h2>Your Career Assessment Results</h2>
+                    <p>Based on your responses, here's what we discovered about you</p>
+                </div>
+                
+                <div class="clarity-score">
+                    <h3>Career Clarity Score</h3>
+                    <div class="score-gauge">
+                        <div class="gauge-circle">
+                            <span id="clarity-score-value">0</span>
+                            <span class="score-label">/100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detected-traps" id="detected-traps">
+                    <h3>🚨 Career Traps Detected</h3>
+                    <div id="traps-list"></div>
+                </div>
+                
+                <div class="career-matches">
+                    <h3>🎯 Top Career Matches</h3>
+                    <div id="career-matches-list"></div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn btn--primary" id="view-roadmap">Get My Personalized Roadmap</button>
+                    <button class="btn btn--outline" id="talk-to-mentor">Talk to AI Mentor Saarthi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Mentor Chat -->
+        <section id="mentor-screen" class="screen">
+            <div class="container">
+                <div class="chat-header">
+                    <div class="mentor-info">
+                        <div class="mentor-avatar">🤖</div>
+                        <div class="mentor-details">
+                            <h3>Saarthi</h3>
+                            <p>Your AI Career Mentor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message mentor-message">
+                            <div class="message-content">
+                                Hello! I'm Saarthi, your AI career mentor. I'm here to help you navigate your career journey. What's on your mind today?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-questions">
+                        <h4>Quick Questions:</h4>
+                        <div class="quick-question-tags">
+                            <button class="quick-tag" data-question="I'm confused about my career">Career Confusion</button>
+                            <button class="quick-tag" data-question="My parents want me to be an engineer">Parental Pressure</button>
+                            <button class="quick-tag" data-question="How do I convince my parents?">Parent Communication</button>
+                            <button class="quick-tag" data-question="I'm worried about money">Financial Concerns</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" placeholder="Type your question here..." id="chat-input">
+                        <button class="chat-send" id="send-message">Send</button>
+                    </div>
+                </div>
+                
+                <!-- Upgrade Prompt -->
+                <div class="upgrade-prompt">
+                    <p>💎 Get unlimited AI mentor conversations with Premium</p>
+                    <button class="btn btn--primary btn--sm" id="upgrade-chat">Upgrade - ₹149/month</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Screen -->
+        <section id="roadmap-screen" class="screen">
+            <div class="container">
+                <div class="roadmap-header">
+                    <h2>Your Personalized Career Roadmap</h2>
+                    <p>Step-by-step plan to achieve your career goals</p>
+                </div>
+                
+                <div class="roadmap-timeline">
+                    <div class="timeline-section">
+                        <h3>📅 Daily Tasks</h3>
+                        <div class="task-list" id="daily-tasks"></div>
+                    </div>
+                    
+                    <div class="timeline-section">
+                        <h3>🎯 Weekly Goals</h3>
+                        <div class="task-list" id="weekly-goals"></div>
+                    </div>
+                    
+                    <div class="timeline-section">
+                        <h3>🏆 Monthly Milestones</h3>
+                        <div class="task-list" id="monthly-milestones"></div>
+                    </div>
+                </div>
+                
+                <div class="roadmap-actions">
+                    <button class="btn btn--primary" id="start-roadmap">Start Following Roadmap</button>
+                    <button class="btn btn--outline" id="export-roadmap">Export as PDF - ₹19</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Screen -->
+        <section id="dashboard-screen" class="screen">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Your Progress Dashboard</h2>
+                    <div class="streak-counter">
+                        <span class="streak-icon">🔥</span>
+                        <span class="streak-number">5</span>
+                        <span class="streak-label">Day Streak</span>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Career Clarity</h3>
+                        <div class="progress-circle">
+                            <span class="progress-value">75%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Skills Progress</h3>
+                        <div class="skill-bars">
+                            <div class="skill-bar">
+                                <span class="skill-name">Design Thinking</span>
+                                <div class="skill-progress">
+                                    <div class="skill-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-bar">
+                                <span class="skill-name">Figma</span>
+                                <div class="skill-progress">
+                                    <div class="skill-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Weekly Summary</h3>
+                        <div class="summary-stats">
+                            <div class="stat">
+                                <span class="stat-value">12</span>
+                                <span class="stat-label">Tasks Completed</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Goals Achieved</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievements">
+                    <h3>🏅 Recent Achievements</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <span class="achievement-icon">🎨</span>
+                            <span class="achievement-text">Completed first design project</span>
+                        </div>
+                        <div class="achievement-item">
+                            <span class="achievement-icon">📚</span>
+                            <span class="achievement-text">Finished design course module</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav" id="bottom-nav" style="display: none;">
+            <button class="nav-item" data-screen="dashboard-screen">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Dashboard</span>
+            </button>
+            <button class="nav-item" data-screen="roadmap-screen">
+                <span class="nav-icon">🗺️</span>
+                <span class="nav-label">Roadmap</span>
+            </button>
+            <button class="nav-item" data-screen="mentor-screen">
+                <span class="nav-icon">🤖</span>
+                <span class="nav-label">Mentor</span>
+            </button>
+            <button class="nav-item" data-screen="results-screen">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-label">Results</span>
+            </button>
+        </nav>
+
+        <!-- Upgrade Modal -->
+        <div class="modal hidden" id="upgrade-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Unlock Your Full Potential</h3>
+                    <button class="modal-close" id="close-upgrade-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="pricing-cards">
+                        <div class="pricing-card featured">
+                            <div class="plan-badge">Most Popular</div>
+                            <h4>Premium Monthly</h4>
+                            <div class="price">₹149<span>/month</span></div>
+                            <ul class="features">
+                                <li>✅ Unlimited AI Mentor Chat</li>
+                                <li>✅ Advanced Career Analytics</li>
+                                <li>✅ Detailed Progress Reports</li>
+                                <li>✅ Priority Support</li>
+                            </ul>
+                            <button class="btn btn--primary btn--full-width">Choose Premium</button>
+                        </div>
+                        <div class="pricing-card">
+                            <h4>Roadmap Export</h4>
+                            <div class="price">₹19<span>/one-time</span></div>
+                            <ul class="features">
+                                <li>✅ PDF Roadmap Download</li>
+                                <li>✅ Offline Access</li>
+                                <li>✅ Print-friendly Format</li>
+                            </ul>
+                            <button class="btn btn--outline btn--full-width">Export PDF</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
