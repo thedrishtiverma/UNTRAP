@@ -1,4 +1,6 @@
 # UNTRAP
+
+
 AI-powered career guidance platform for a student by a student.
 
 UNTRAP is a mobile-first, AI-driven career guidance ecosystem designed exclusively for Indian students and their families. We combine cutting-edge conversational AI, culturally-intelligent family psychology modeling, and peer mentorship to transform how 150M Indian students discover and pursue their authentic career paths.[1]
