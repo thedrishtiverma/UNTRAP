@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNTRAP Career Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#3D5AFE">
+</head>
+<body>
+    <div class="mobile-app">
+        <!-- Screen 1: Welcome Screen -->
+        <div class="screen active" id="screen-welcome">
+            <div class="screen-content">
+                <div class="logo-section">
+                    <h1 class="app-logo">UNTRAP</h1>
+                    <p class="tagline">Break Free. Build Your Path.</p>
+                    <div class="hero-visual">
+                        <div class="student-icons">
+                            <div class="student-icon">👨‍🎓</div>
+                            <div class="student-icon">👩‍🎓</div>
+                            <div class="student-icon">👨‍💼</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="statistics">
+                    <p class="stat-text">2,100+ students found clarity</p>
+                </div>
+                <div class="cta-section">
+                    <button class="btn-primary" data-next="screen-language">Start Your Journey</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Language Selection -->
+        <div class="screen" id="screen-language">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Choose Your Language</h2>
+                    <p class="subtitle">Select your preferred language for the best experience</p>
+                </div>
+                <div class="language-options">
+                    <div class="language-card" data-language="english">
+                        <div class="language-flag">🇬🇧</div>
+                        <div class="language-info">
+                            <h3>English</h3>
+                            <span class="language-stat">65% users</span>
+                        </div>
+                        <button class="audio-preview">🔊</button>
+                    </div>
+                    <div class="language-card" data-language="hindi">
+                        <div class="language-flag">🇮🇳</div>
+                        <div class="language-info">
+                            <h3>हिंदी (Hindi)</h3>
+                            <span class="language-stat">20% users</span>
+                        </div>
+                        <button class="audio-preview">🔊</button>
+                    </div>
+                    <div class="language-card" data-language="hinglish">
+                        <div class="language-flag">🇮🇳</div>
+                        <div class="language-info">
+                            <h3>Hinglish</h3>
+                            <span class="language-stat">15% users</span>
+                        </div>
+                        <button class="audio-preview">🔊</button>
+                    </div>
+                </div>
+                <button class="btn-primary hidden" id="language-continue" data-next="screen-user-type">Continue</button>
+            </div>
+        </div>
+
+        <!-- Screen 3: User Type Selection -->
+        <div class="screen" id="screen-user-type">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>What describes you best?</h2>
+                    <p class="subtitle">Choose your current stage to get personalized guidance</p>
+                </div>
+                <div class="user-type-options">
+                    <div class="user-type-card" data-user-type="high_school">
+                        <div class="user-type-icon">📚</div>
+                        <div class="user-type-info">
+                            <h3>High School Student</h3>
+                            <p class="age-range">Ages 14-18 | Class 9th-12th</p>
+                            <p class="description">Choosing streams, preparing for boards, college planning</p>
+                        </div>
+                    </div>
+                    <div class="user-type-card" data-user-type="college">
+                        <div class="user-type-icon">🎓</div>
+                        <div class="user-type-info">
+                            <h3>College Student</h3>
+                            <p class="age-range">Ages 18-24 | Undergraduate/Graduate</p>
+                            <p class="description">Career planning, skill building, internship guidance</p>
+                        </div>
+                    </div>
+                    <div class="user-type-card" data-user-type="professional">
+                        <div class="user-type-icon">💼</div>
+                        <div class="user-type-info">
+                            <h3>Working Professional</h3>
+                            <p class="age-range">Ages 22-30 | Career Transition</p>
+                            <p class="description">Career switch, upskilling, growth planning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 4: Phone Authentication -->
+        <div class="screen" id="screen-phone-auth">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <div class="security-icon">🛡️</div>
+                    <h2>Verify Your Number</h2>
+                    <p class="subtitle">We'll send you an OTP for secure access</p>
+                </div>
+                <div class="auth-form">
+                    <div class="phone-input-group">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="phone-input" class="form-control" placeholder="Enter mobile number" maxlength="10">
+                    </div>
+                    <p class="security-text">🔒 Your data is completely secure and private</p>
+                    <button class="btn-primary" id="send-otp">Send OTP</button>
+                    
+                    <div class="otp-section hidden" id="otp-section">
+                        <h3>Enter OTP</h3>
+                        <div class="otp-inputs">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                            <input type="text" class="otp-input" maxlength="1">
+                        </div>
+                        <div class="otp-actions">
+                            <button class="btn-secondary" id="resend-otp">Resend OTP</button>
+                            <button class="btn-primary" id="verify-otp" data-next="screen-assessment">Verify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 5: Assessment Dashboard -->
+        <div class="screen" id="screen-assessment">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Career Discovery Assessment</h2>
+                    <p class="subtitle">Complete these 4 phases to discover your perfect career path</p>
+                </div>
+                <div class="assessment-phases">
+                    <div class="phase-card" data-phase="1">
+                        <div class="phase-icon">❤️</div>
+                        <div class="phase-info">
+                            <h3>Interest Discovery</h3>
+                            <p class="phase-description">What excites and motivates you?</p>
+                            <div class="phase-meta">
+                                <span class="question-count">5 questions</span>
+                                <span class="time-estimate">4-5 min</span>
+                            </div>
+                        </div>
+                        <div class="phase-status pending" data-status="pending"></div>
+                    </div>
+                    <div class="phase-card locked" data-phase="2">
+                        <div class="phase-icon">⭐</div>
+                        <div class="phase-info">
+                            <h3>Skills Evaluation</h3>
+                            <p class="phase-description">What are you naturally good at?</p>
+                            <div class="phase-meta">
+                                <span class="question-count">12 questions</span>
+                                <span class="time-estimate">8-10 min</span>
+                            </div>
+                        </div>
+                        <div class="phase-status locked" data-status="locked">🔒</div>
+                    </div>
+                    <div class="phase-card locked" data-phase="3">
+                        <div class="phase-icon">⚖️</div>
+                        <div class="phase-info">
+                            <h3>Constraints Analysis</h3>
+                            <p class="phase-description">What limitations should we consider?</p>
+                            <div class="phase-meta">
+                                <span class="question-count">10 questions</span>
+                                <span class="time-estimate">6-8 min</span>
+                            </div>
+                        </div>
+                        <div class="phase-status locked" data-status="locked">🔒</div>
+                    </div>
+                    <div class="phase-card locked" data-phase="4">
+                        <div class="phase-icon">🎯</div>
+                        <div class="phase-info">
+                            <h3>Context & Goals</h3>
+                            <p class="phase-description">What's your timeline and priorities?</p>
+                            <div class="phase-meta">
+                                <span class="question-count">8 questions</span>
+                                <span class="time-estimate">5-7 min</span>
+                            </div>
+                        </div>
+                        <div class="phase-status locked" data-status="locked">🔒</div>
+                    </div>
+                </div>
+                <div class="progress-summary">
+                    <div class="overall-progress">
+                        <div class="progress-circle">
+                            <span class="progress-text">0%</span>
+                        </div>
+                        <p>Overall Progress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 6: Assessment Questions -->
+        <div class="screen" id="screen-questions">
+            <div class="screen-content">
+                <div class="question-header">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="question-progress"></div>
+                    </div>
+                    <div class="question-meta">
+                        <span id="current-question">1</span> of <span id="total-questions">5</span>
+                    </div>
+                </div>
+                <div class="question-container" id="question-container">
+                    <!-- Questions will be dynamically loaded here -->
+                </div>
+                <div class="question-navigation">
+                    <button class="btn-secondary hidden" id="prev-question">Previous</button>
+                    <button class="btn-primary" id="next-question" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 7: Trap Detection Results -->
+        <div class="screen" id="screen-traps">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Career Traps Detected</h2>
+                    <p class="subtitle">We've identified some patterns that might limit your career choices</p>
+                </div>
+                <div class="traps-list">
+                    <div class="trap-card high-severity">
+                        <div class="trap-icon">👨‍👩‍👧‍👦</div>
+                        <div class="trap-info">
+                            <h3>Parental Pressure Trap</h3>
+                            <p>Family expectations may be influencing your career thinking</p>
+                            <div class="trap-meta">
+                                <span class="severity high">High Severity</span>
+                                <span class="affected">78% affected</span>
+                            </div>
+                            <button class="btn-outline learn-more">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="trap-card medium-severity">
+                        <div class="trap-icon">💡</div>
+                        <div class="trap-info">
+                            <h3>Limited Awareness Trap</h3>
+                            <p>You might not know about all available career options</p>
+                            <div class="trap-meta">
+                                <span class="severity medium">Medium Severity</span>
+                                <span class="affected">65% affected</span>
+                            </div>
+                            <button class="btn-outline learn-more">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="trap-card low-severity">
+                        <div class="trap-icon">₹</div>
+                        <div class="trap-info">
+                            <h3>Financial Fear Trap</h3>
+                            <p>Money concerns may be limiting your career exploration</p>
+                            <div class="trap-meta">
+                                <span class="severity low">Low Severity</span>
+                                <span class="affected">32% affected</span>
+                            </div>
+                            <button class="btn-outline learn-more">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" data-next="screen-mentor">Continue to Results</button>
+            </div>
+        </div>
+
+        <!-- Screen 8: AI Mentor Introduction -->
+        <div class="screen" id="screen-mentor">
+            <div class="screen-content">
+                <div class="mentor-intro">
+                    <div class="mentor-avatar">
+                        <div class="avatar-circle">🤖</div>
+                        <div class="availability-indicator"></div>
+                    </div>
+                    <h2>Meet Saarthi, Your AI Career Mentor</h2>
+                    <p class="subtitle">I'm here to guide you through every step of your career journey</p>
+                </div>
+                <div class="mentor-message">
+                    <div class="chat-bubble">
+                        <p>Namaste! I'm Saarthi, your personal AI career mentor. I understand Indian family dynamics, cultural pressures, and the unique challenges students face. I'm here 24/7 to help you navigate your career path with empathy and practical guidance.</p>
+                    </div>
+                </div>
+                <div class="capabilities">
+                    <h3>What I can help with:</h3>
+                    <div class="capability-list">
+                        <div class="capability-item">🏠 Cultural understanding of Indian families</div>
+                        <div class="capability-item">🕐 24/7 availability for guidance</div>
+                        <div class="capability-item">🎯 Personalized advice based on your assessment</div>
+                        <div class="capability-item">💬 Help with family communication</div>
+                        <div class="capability-item">🗺️ Career roadmap creation</div>
+                    </div>
+                </div>
+                <div class="conversation-starters">
+                    <h3>Try asking me:</h3>
+                    <div class="starter-buttons">
+                        <button class="starter-btn">"Help me talk to my parents about my career choice"</button>
+                        <button class="starter-btn">"I'm confused between multiple career options"</button>
+                        <button class="starter-btn">"How do I build skills for my chosen career?"</button>
+                    </div>
+                </div>
+                <button class="btn-primary" data-next="screen-matches">Continue to Career Matches</button>
+            </div>
+        </div>
+
+        <!-- Screen 9: Career Matches -->
+        <div class="screen" id="screen-matches">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Your Career Matches</h2>
+                    <p class="subtitle">Based on your assessment, here are careers that align with your profile</p>
+                </div>
+                <div class="career-matches">
+                    <div class="match-card">
+                        <div class="match-header">
+                            <h3>UX/UI Designer</h3>
+                            <div class="match-percentage">
+                                <div class="match-circle">
+                                    <span>92%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="match-description">Design digital experiences that users love</p>
+                        <div class="match-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">₹4-12 LPA</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Potential:</span>
+                                <span class="detail-value growth-high">Very High</span>
+                            </div>
+                        </div>
+                        <div class="required-skills">
+                            <h4>Required Skills:</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Design Thinking</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">User Research</span>
+                                <span class="skill-tag">Prototyping</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary explore-career">Explore Career</button>
+                    </div>
+                    
+                    <div class="match-card">
+                        <div class="match-header">
+                            <h3>Data Scientist</h3>
+                            <div class="match-percentage">
+                                <div class="match-circle">
+                                    <span>87%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="match-description">Extract insights from data to drive business decisions</p>
+                        <div class="match-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">₹6-18 LPA</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Potential:</span>
+                                <span class="detail-value growth-high">Very High</span>
+                            </div>
+                        </div>
+                        <div class="required-skills">
+                            <h4>Required Skills:</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Statistics</span>
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary explore-career">Explore Career</button>
+                    </div>
+
+                    <div class="match-card">
+                        <div class="match-header">
+                            <h3>Digital Marketing Specialist</h3>
+                            <div class="match-percentage">
+                                <div class="match-circle">
+                                    <span>84%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="match-description">Create and manage online marketing campaigns</p>
+                        <div class="match-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range:</span>
+                                <span class="detail-value">₹3-10 LPA</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Growth Potential:</span>
+                                <span class="detail-value growth-medium">High</span>
+                            </div>
+                        </div>
+                        <div class="required-skills">
+                            <h4>Required Skills:</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Content Creation</span>
+                                <span class="skill-tag">Analytics</span>
+                                <span class="skill-tag">SEO</span>
+                                <span class="skill-tag">Social Media</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary explore-career">Explore Career</button>
+                    </div>
+                </div>
+                <button class="btn-primary fixed-bottom" data-next="screen-roadmap">Get My Personalized Roadmap</button>
+            </div>
+        </div>
+
+        <!-- Screen 10: Personalized Roadmap -->
+        <div class="screen" id="screen-roadmap">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Your Personalized Roadmap</h2>
+                    <p class="subtitle">A step-by-step plan to achieve your career goals</p>
+                    <div class="roadmap-meta">
+                        <span class="selected-career">🎨 UX/UI Designer</span>
+                        <span class="timeline">12-month plan</span>
+                    </div>
+                </div>
+                <div class="roadmap-timeline">
+                    <div class="timeline-section">
+                        <h3>Week 1-2: Foundation</h3>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Complete 'Intro to UX Design' course on Coursera</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Set up Figma account and explore basic tools</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Read 'Don't Make Me Think' by Steve Krug</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Follow top UX designers on LinkedIn and Twitter</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-section">
+                        <h3>Week 3-4: First Steps</h3>
+                        <div class="task-list">
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Create your first wireframe mockup</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Join UX design communities online</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Practice user research techniques</span>
+                            </div>
+                            <div class="task-item">
+                                <input type="checkbox" class="task-checkbox">
+                                <span>Start building your design portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="milestones">
+                    <h3>Monthly Milestones</h3>
+                    <div class="milestone-cards">
+                        <div class="milestone-card">
+                            <div class="milestone-month">Month 1</div>
+                            <h4>Foundation Complete</h4>
+                            <p>Complete foundational UX course and create first portfolio project</p>
+                        </div>
+                        <div class="milestone-card">
+                            <div class="milestone-month">Month 3</div>
+                            <h4>Portfolio Ready</h4>
+                            <p>Build 3 portfolio projects and apply for internships</p>
+                        </div>
+                        <div class="milestone-card">
+                            <div class="milestone-month">Month 6</div>
+                            <h4>Real Experience</h4>
+                            <p>Complete internship and expand portfolio</p>
+                        </div>
+                        <div class="milestone-card">
+                            <div class="milestone-month">Month 12</div>
+                            <h4>Career Launch</h4>
+                            <p>Land junior UX designer role</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary" data-next="screen-progress">Start My Journey</button>
+            </div>
+        </div>
+
+        <!-- Screen 11: Progress Dashboard -->
+        <div class="screen" id="screen-progress">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Your Progress Dashboard</h2>
+                    <p class="subtitle">Track your career development journey</p>
+                </div>
+                
+                <div class="progress-stats">
+                    <div class="stat-card main-stat">
+                        <div class="clarity-gauge">
+                            <div class="gauge-circle">
+                                <div class="gauge-fill"></div>
+                                <div class="gauge-center">
+                                    <span class="gauge-value">85%</span>
+                                    <span class="gauge-label">Career Clarity</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="improvement">
+                            <span class="improvement-text">↑ +50% from 35%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-progress">
+                    <h3>Skill Development Progress</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Design Thinking</span>
+                                <span>78/90</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Figma Proficiency</span>
+                                <span>65/85</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>User Research</span>
+                                <span>52/80</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 52%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Portfolio Building</span>
+                                <span>43/95</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 43%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="streak-section">
+                    <h3>Daily Streak</h3>
+                    <div class="streak-stats">
+                        <div class="streak-item">
+                            <span class="streak-number">12</span>
+                            <span class="streak-label">Current Streak</span>
+                        </div>
+                        <div class="streak-item">
+                            <span class="streak-number">18</span>
+                            <span class="streak-label">Best Streak</span>
+                        </div>
+                        <div class="streak-item">
+                            <span class="streak-number">45</span>
+                            <span class="streak-label">Total Days</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="achievements">
+                    <h3>Recent Achievements</h3>
+                    <div class="achievement-list">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🎓</div>
+                            <div class="achievement-info">
+                                <h4>Course Completed</h4>
+                                <p>Finished your first UX course</p>
+                                <span class="achievement-date">Sep 15, 2025</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🎨</div>
+                            <div class="achievement-info">
+                                <h4>Portfolio Creator</h4>
+                                <p>Created your first portfolio project</p>
+                                <span class="achievement-date">Sep 20, 2025</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">👥</div>
+                            <div class="achievement-info">
+                                <h4>Community Member</h4>
+                                <p>Joined 3 UX design communities</p>
+                                <span class="achievement-date">Sep 22, 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn-secondary" data-next="screen-premium">Unlock Premium Features</button>
+            </div>
+        </div>
+
+        <!-- Screen 12: Premium Upgrade -->
+        <div class="screen" id="screen-premium">
+            <div class="screen-content">
+                <div class="screen-header">
+                    <h2>Unlock Your Full Potential</h2>
+                    <p class="subtitle">Get advanced features to accelerate your career journey</p>
+                </div>
+                
+                <div class="pricing-cards">
+                    <div class="pricing-card free">
+                        <h3>Free Plan</h3>
+                        <div class="price">₹0</div>
+                        <div class="features">
+                            <div class="feature">✓ Basic career assessment</div>
+                            <div class="feature">✓ 3 career matches</div>
+                            <div class="feature">✓ Limited AI mentor (3/day)</div>
+                            <div class="feature">✓ Basic roadmap overview</div>
+                            <div class="feature">✓ Community access</div>
+                        </div>
+                        <button class="btn-outline">Current Plan</button>
+                    </div>
+                    
+                    <div class="pricing-card basic">
+                        <h3>Basic Premium</h3>
+                        <div class="price">₹99<span>/month</span></div>
+                        <div class="features">
+                            <div class="feature">✓ Everything in Free</div>
+                            <div class="feature">✓ Unlimited AI mentor chat</div>
+                            <div class="feature">✓ Detailed roadmaps with daily tasks</div>
+                            <div class="feature">✓ Progress tracking & analytics</div>
+                            <div class="feature">✓ Priority customer support</div>
+                        </div>
+                        <button class="btn-primary">Upgrade Now</button>
+                    </div>
+                    
+                    <div class="pricing-card pro popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Pro Premium</h3>
+                        <div class="price">₹149<span>/month</span></div>
+                        <div class="features">
+                            <div class="feature">✓ Everything in Basic</div>
+                            <div class="feature">✓ Multiple career path exploration</div>
+                            <div class="feature">✓ 1-on-1 career counseling session</div>
+                            <div class="feature">✓ Industry mentor connections</div>
+                            <div class="feature">✓ Job referral assistance</div>
+                        </div>
+                        <button class="btn-primary">Choose Pro</button>
+                    </div>
+                    
+                    <div class="pricing-card lifetime">
+                        <h3>Lifetime Access</h3>
+                        <div class="price">₹999<span> once</span></div>
+                        <div class="features">
+                            <div class="feature">✓ All Pro features forever</div>
+                            <div class="feature">✓ Quarterly career reviews</div>
+                            <div class="feature">✓ Exclusive alumni network</div>
+                            <div class="feature">✓ Early access to new features</div>
+                            <div class="feature">✓ No recurring payments</div>
+                        </div>
+                        <button class="btn-primary">Buy Lifetime</button>
+                    </div>
+                </div>
+                
+                <div class="testimonials">
+                    <h3>What Students Say</h3>
+                    <div class="testimonial-cards">
+                        <div class="testimonial-card">
+                            <p>"UNTRAP helped me convince my parents about UX design. Now I'm interning at a top company!"</p>
+                            <div class="testimonial-author">- Priya K., Pune</div>
+                        </div>
+                        <div class="testimonial-card">
+                            <p>"The personalized roadmap was exactly what I needed to transition from engineering to content creation."</p>
+                            <div class="testimonial-author">- Arjun M., Lucknow</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="continue-free">
+                    <button class="btn-outline" data-next="screen-progress">Continue with Free</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div class="loading-screen hidden" id="loading">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Setting up your profile...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
