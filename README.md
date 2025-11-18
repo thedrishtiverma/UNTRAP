@@ -3,7 +3,7 @@
 
 AI-powered career guidance platform for a student by a student.
 
-UNTRAP is a mobile-first, AI-driven career guidance ecosystem designed exclusively for Indian students and their families. We combine cutting-edge conversational AI, culturally-intelligent family psychology modeling, and peer mentorship to transform how 150M Indian students discover and pursue their authentic career paths.[1]
+UNTRAP is a mobile-first, AI-driven career guidance ecosystem designed exclusively for Indian students and their families. We combine cutting-edge conversational AI, culturally-intelligent family psychology modeling, and peer mentorship to transform how 150M Indian students discover and pursue their authentic career paths.
 
 ***
 
@@ -27,7 +27,7 @@ UNTRAP is a mobile-first, AI-driven career guidance ecosystem designed exclusive
 
 ### What is UNTRAP?
 
-UNTRAP Technologies Private Limited is building India's first **culturally-aware, AI-powered career clarity platform** that addresses the unique challenges Indian students face: family pressure, limited exposure to modern careers, societal expectations, and mental health strain.[1]
+UNTRAP Technologies Private Limited is building India's first **culturally-aware, AI-powered career clarity platform** that addresses the unique challenges Indian students face: family pressure, limited exposure to modern careers, societal expectations, and mental health strain.
 
 ### Market Opportunity
 
@@ -42,13 +42,13 @@ UNTRAP Technologies Private Limited is building India's first **culturally-aware
 2. **Family Misalignment** — Parents unaware of modern career options
 3. **Limited Mentorship** — Lack of accessible, affordable guidance
 4. **Mental Health Crisis** — Academic pressure without emotional support
-5. **Talent Mismatch** — Students pursuing careers misaligned with natural strengths[1]
+5. **Talent Mismatch** — Students pursuing careers misaligned with natural strengths
 
 ---
 
 ## ✨ Core Features
 
-UNTRAP consists of **8 interconnected modules**, each addressing a specific student/parent need:[1]
+UNTRAP consists of **8 interconnected modules**, each addressing a specific student/parent need:
 
 ### 1. 🌱 Saarthi 24/7 — AI Life Companion
 **24/7 conversational AI mentor** with emotional intelligence, memory, and crisis detection.
@@ -176,7 +176,7 @@ Cloud Platform: Google Cloud Platform (GCP) / AWS
 - ✅ Cost-effective at startup scale
 - ✅ Rapid iteration with hot reloading
 - ✅ Battle-tested for real-time features (chat, notifications)
-- ✅ Strong ecosystem for AI integration[2][3]
+- ✅ Strong ecosystem for AI integration
 
 ---
 
@@ -248,8 +248,9 @@ Cloud Platform: Google Cloud Platform (GCP) / AWS
 - `mentorship_sessions` — Mentor bookings
 - `expert_calls` — Professional consultation records
 - `hearts` — Peer mentorship rewards
-- `support_circles` — Wellness monitoring data[1]
+- `support_circles` — Wellness monitoring data
 
+  
 **Full database schema with relationships, constraints, and indexes provided in specification documents.**
 
 ***
