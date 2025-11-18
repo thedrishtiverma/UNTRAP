@@ -883,17 +883,16 @@ For licensing inquiries: legal@untrap.app
 
 This project is inspired by the millions of Indian students trapped in career confusion, family pressure, and societal expectations. UNTRAP exists to give every student the clarity, confidence, and conviction to pursue their authentic path.
 
-***
 
 ## 🚀 Roadmap
 
 ### Phase 1: MVP (Months 1-6) ✅ In Progress
 - ✅ Authentication & onboarding
-- ✅ Natural Genius Map assessment
+- ✅ Family Dynamics Map
 - ✅ Saarthi AI basic conversations
 - ✅ Career matching algorithm
 - 🔄 Dream Canvas vision boards
-- 🔄 Family Dynamics Map
+- 🔄 Natural Genius Map assessment
 - 🔄 Payments & subscriptions
 
 ### Phase 2: Feature Expansion (Months 7-12)
@@ -911,21 +910,6 @@ This project is inspired by the millions of Indian students trapped in career co
 - ⏳ Institutional partnerships (100+ schools)
 - ⏳ Corporate CSR programs
 
-**[Full 3-year roadmap in specification docs] **[1]
-
-***
-
-## 📖 Additional Documentation
-
-### Internal Resources
-- **[Full Product Specification](docs/UNTRAP-App-Full-Spec-Prompt.md)** — 40,000-word complete blueprint[1]
-- **[Tech Stack & Monetization](docs/UNTRAP-Tech-Stack-Monetization.md)** — Technical decisions & revenue logic[3]
-- **[Executive Summary](docs/UNTRAP-Executive-Summary.md)** — High-level overview[2]
-- **[API Reference](docs/api/)** — Complete API documentation
-- **[Database Schema](docs/database/)** — Full schema with relationships
-- **[Design System](docs/design/)** — UI/UX component library
-
----
 
 **Built with ❤️ by a student for a student.**
 
